@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather</title>
+<!-- For-Mobile-Apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Real Time Weather Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+<!-- Style -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Style -->
+
+<style>
+.temp{
+     background-position: center;
+     background-position: top;
+}
+
+.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border-color: transparent;
+  float: left;
+  width: 80%;
+  background:transparent;
+}
+
+.example button {
+  padding: 10px;
+  background:transparent;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+</style>
+
+
+<script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+
+</head>
+<body onload="startTime()">
+<div class="example">
+    <label for="site-search">Find another location : </label>
+    <input type="search" id="geolocation" placeholder="Search..">
+    <button id="SearchBtn" type="submit" ><i class="fa fa-search"></i></button>
+</div>
+
+<h1>REAL TIME WEATHER WIDGET</h1>
+
+<div class="container">
+
+    <div class="city">
+        {{city}}
+    </div>
+
+    <div class="content">
+        
+        <div class="place">
+
+            <div id="txt"></div>
+
+            <div class="dmy">
+                <script type="text/javascript">
+                   var mydate=new Date()
+                   var year=mydate.getYear()
+                   if(year<1000)
+                     year+=1900
+                     var day=mydate.getDay()
+                     var month=mydate.getMonth()
+                     var daym=mydate.getDate()
+                   if(daym<10)
+                     daym="0"+daym
+                     var dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+                     var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+                     document.write(""+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"")
+                </script>
+            </div>
+
+        </div>
+
+        <div class="temp" style = background-image:url('../images/{{url}}') >
+            <p>{{temp}}</p>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+<script type="module" src="js/weather.js"></script>
+<!-- Javascript -->
+
+</body>
+</html>

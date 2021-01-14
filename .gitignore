@@ -1,0 +1,5 @@
+node_modules
+config
+views/js/index.js
+views/js/utils.js
+views/index.html
